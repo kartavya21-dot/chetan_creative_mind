@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #ffffff;
+  --fg: #121212;
+}
+html, body { height: 100%; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--fg); }
+
+.container { @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8; }
+.section { @apply py-20; }
+.card { @apply rounded-3xl border border-slate-200 bg-white shadow-soft; }
+.badge { @apply inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-1 text-xs; }
+.btn { @apply inline-flex items-center justify-center rounded-2xl px-5 py-3 font-medium transition; }
+.btn-primary { @apply bg-primary text-white hover:opacity-90; }
+.btn-outline { @apply border border-slate-300 hover:bg-slate-100; }
+
+/* Reduce layout shift for images */
+img { content-visibility: auto; }

@@ -1,0 +1,15 @@
+{
+  "name": "Chetan CreativeMind | AI-Powered Creative Agency",
+  "short_name": "CreativeMind",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#FF4D67",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
