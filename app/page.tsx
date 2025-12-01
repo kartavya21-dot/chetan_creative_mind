@@ -71,13 +71,13 @@ export default function HomePage(){
       {/* Blogs */}
       <section id="blogs" className="section">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5 }}
+          // initial={{ opacity: 0, y: 10 }}
+          // whileInView={{ opacity: 1, y: 0 }}
+          // viewport={{ once: true, amount: 0.3 }}
+          // transition={{ duration: 0.5 }}
           className="container"
         >
-          <div className="flex items-end justify-between gap-4">
+          <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Insights & Case Studies</h2>
             <WhatsAppButton variant="ghost" label="WhatsApp us"/>
           </div>
