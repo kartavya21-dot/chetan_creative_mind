@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import WhatsAppButton from "../components/WhatsAppButton";
 import Services from "../components/Services";
 import Blogs from "../components/Blogs";
@@ -7,15 +7,34 @@ import Contact from "../components/Contact";
 
 export default function HomePage(){
   return (
-    <main>
+    <main className="overflow-x-hidden"> {/* Prevent horizontal scrollbar from animations */}
       {/* Hero */}
       <section id="home" className="section">
         <div className="container grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <span className="badge">AI + Creative Agency</span>
-            <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
-              We craft <span className="text-primary">AI-powered videos</span>, bold branding & growth strategies.
-            </h1>
+            <motion.h1
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                  },
+                },
+              }}
+              className="mt-4 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight"
+            >
+              {"We craft AI-powered videos, bold branding & growth strategies."
+                .split(" ")
+                .map((word, index) => (
+                  <motion.span key={index} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className={word.includes("AI-powered") ? "text-primary" : ""}>
+                    {word}{" "}
+                  </motion.span>
+                ))}
+            </motion.h1>
             <p className="mt-4 text-lg text-slate-600 max-w-prose">
               2025-ready performance website built for speed (&lt;1s feel on Vercel), trust and conversions. Clean UI like Instagram, Myntra and Amazon product cards.
             </p>
@@ -29,36 +48,54 @@ export default function HomePage(){
               ))}
             </ul>
           </div>
-          <motion.div initial={{opacity:0, y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6}}
+          <motion.div initial={{opacity:0, y:20}} animate={{opacity:1,y:0}} transition={{duration:1}}
             className="card aspect-[4/3] w-full bg-gradient-to-br from-primary/15 via-fuchsia-500/10 to-blue-500/10"/>
         </div>
       </section>
 
       {/* Services */}
       <section id="services" className="section bg-slate-50">
-        <div className="container">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="container"
+        >
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center">Services</h2>
           <p className="mt-3 text-center text-slate-600 max-w-2xl mx-auto">Pick a package or mix what you need. Hover for details.</p>
           <Services />
-        </div>
+        </motion.div>
       </section>
 
       {/* Blogs */}
       <section id="blogs" className="section">
-        <div className="container">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="container"
+        >
           <div className="flex items-end justify-between gap-4">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Insights & Case Studies</h2>
             <WhatsAppButton variant="ghost" label="WhatsApp us"/>
           </div>
           <Blogs />
-        </div>
+        </motion.div>
       </section>
 
       {/* Contact */}
       <section id="contact" className="section bg-slate-50">
-        <div className="container">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          className="container"
+        >
           <Contact />
-        </div>
+        </motion.div>
       </section>
     </main>
   );

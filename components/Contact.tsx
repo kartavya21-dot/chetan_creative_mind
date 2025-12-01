@@ -11,7 +11,7 @@ export default function Contact(){
         </div>
         <ul className="mt-6 space-y-3 text-sm">
           <li>📧 hello@yourbrand.com</li>
-          <li>📍 India</li>
+          <li>📍 Indore, India</li>
           <li>🔗 Instagram & FrameBrush links in footer</li>
         </ul>
       </div>
